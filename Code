@@ -26,7 +26,7 @@ def main():
     lat = 35 #lat = input("Inerisci la latitudine : ") #35
     lon = 139 #lon = input("Inserisci la longitudine : ") #139
     api_key =  "2472ce46ad7627c83c042b574839d25d"
-    giorno_utente = "2022-03-31" #giorno_utente = input("inserisci il giorno (year-month-day) : ")
+    giorno_utente = "2022-03-31" #giorno_utente = input("inserisci il giorno (year-month-day) : ") ## Inserire il giorno corrente se no il programma si blocca 
 
     diz_finale = get_weather(api_key,lat,lon, giorno_utente) # Acquisizione e Manipolazione dei dati di openweathermap e dell'input dell'utente
     scrivi_informazioni(diz_finale,"dicz.json") # Scrittura dell'output
