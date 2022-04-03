@@ -1,0 +1,35 @@
+import requests
+import json
+
+def get_weather(api_key, lat, lon, giorno_utente):
+
+    diz_finale = {}
+    url = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={api_key}"
+    #ricordati http://
+    response = requests.get(url).json()
+    temp = response['list']
+    for i in temp:
+        giorno_ora = i["dt_txt"].split()
+        giorno = giorno_ora[0]
+        if giorno == giorno_utente:
+            diz_finale= {"main": i["main"], "weather": [{"main" : i["weather"][0]["main"], "description" : i["weather"][0]["description"]}]}
+            break
+    return diz_finale
+
+def scrivi_informazioni(diz,filename):
+
+    oggetto = json.dumps(diz)
+    with open(filename, "w") as outfile:
+        outfile.write(oggetto)
+
+def main():
+    lat = 35 #lat = input("Inerisci la latitudine : ") #35
+    lon = 139 #lon = input("Inserisci la longitudine : ") #139
+    api_key =  "2472ce46ad7627c83c042b574839d25d"
+    giorno_utente = "2022-03-31" #giorno_utente = input("inserisci il giorno (year-month-day) : ")
+
+    diz_finale = get_weather(api_key,lat,lon, giorno_utente) # Acquisizione e Manipolazione dei dati di openweathermap e dell'input dell'utente
+    scrivi_informazioni(diz_finale,"dicz.json") # Scrittura dell'output
+
+main()
+
