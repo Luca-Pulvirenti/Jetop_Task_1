@@ -1,0 +1,19 @@
+{
+  "main": {
+    "temp": 283.59, 
+    "feels_like": 282.86, 
+    "temp_min": 283.59, 
+    "temp_max": 283.59, 
+    "pressure": 1023, 
+    "sea_level": 1023, 
+    "grnd_level": 994, 
+    "humidity": 83, 
+    "temp_kf": 0
+  }, 
+  "weather": [
+    {
+      "main": "Clouds", 
+      "description": "broken clouds"
+    }
+  ]
+}
